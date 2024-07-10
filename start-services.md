@@ -1,7 +1,6 @@
-
 # Start Serviçe Nextjs, Nestjs com pm2
 
-![Texto Alternativo]('./others/Group 1.pn2')
+![Texto Alternativo](others/start.png)
 
 Esse Readme é uma breve configuração de como é iniciado uma aplicação em nextjs e nestjs com pm2 e configurando
 para aplicação ser iniciado quando a maquina

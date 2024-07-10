@@ -1,7 +1,10 @@
 # Configuração do NextAuth
 
+!["nextauth"](/others/nextauth.png)
+
 ### 1. Instalação do Pacote
-Execute o comando abaixo para instalar o pacote NextAuth: 
+
+Execute o comando abaixo para instalar o pacote NextAuth:
 
 ```bash
 npm install next-auth
@@ -104,6 +107,7 @@ export default SignIn;
 ```
 
 ### 4. Middleware de Autenticação
+
 Crie um arquivo chamado middleware.ts na raiz do projeto com o seguinte conteúdo:
 
 ```bash
@@ -146,7 +150,9 @@ export default withAuth(
 ```
 
 ### 5. Configuração dos Providers
+
 Crie o arquivo app/providers.tsx com o seguinte conteúdo:
+
 ```bash
 "use client";
 
@@ -163,6 +169,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 ```
 
 ### 6. Atualizar o Layout
+
 No arquivo layout.ts, importe o SessionProvider:
 
 ```bash
@@ -197,6 +204,7 @@ export default function RootLayout({
 ```
 
 ### 7. Configuração do .env
+
 Adicione as seguintes variáveis no arquivo .env:
 
 ```bash
