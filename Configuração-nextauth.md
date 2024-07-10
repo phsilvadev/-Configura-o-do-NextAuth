@@ -203,7 +203,41 @@ export default function RootLayout({
 
 ```
 
-### 7. Configuração do .env
+### 9. Criando uma interface
+
+Na raíz do projeto, você vai criar um arquivo dentro da pas shared/@types/User.ts
+
+```bash
+
+export type User = {
+  id: number;
+  access_token: string;
+  name: string;
+  isActivate: boolean;
+  isAdmin: boolean;
+  refresh_token: string;
+};
+
+```
+
+Em seguinda dentro da pasta @types, você vai criar next-auth.d.ts dentro do mesmo vai colocar o seguinte codigo
+
+```bash
+
+import { User } from "./User";
+
+declare module "next-auth" {
+  interface Session {
+    user: User;
+  }
+}
+
+```
+
+Assim que o usuario for logado e tiver os mesmos parametros do User serar colocado na sessão do NextAuth
+
+
+### 8. Configuração do .env
 
 Adicione as seguintes variáveis no arquivo .env:
 
@@ -211,3 +245,5 @@ Adicione as seguintes variáveis no arquivo .env:
 NEXTAUTH_SECRET=your_secret_key
 NEXTAUTH_URL=http://localhost:3000
 ```
+
+
