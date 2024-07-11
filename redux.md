@@ -79,38 +79,12 @@ no exemplo em baixo está mostrando ima features da sessão do usuario, vamos ar
 
 import { createSlice } from "@reduxjs/toolkit";
 
-interface LoginPayload {
-  id: number;
-  Name: string;
-  isActivate: boolean;
-  isAdmin: boolean;
-  access_token: string;
-  refresh_token: string;
-}
 
-type PlayLoadAction = {
-  payload: LoginPayload;
-};
-
-interface AuthState {
-  id: number;
-  Name: string;
-  isActivate: boolean;
-  isAdmin: boolean;
-  access_token: string;
-  refresh_token: string;
-}
-
-interface InitialState {
-  value: AuthState;
-}
 
 const initialState = {
   value: {
     id: 0,
     Name: "",
-    isActivate: false,
-    isAdmin: false,
     access_token: "",
     refresh_token: "",
   } as AuthState,
@@ -128,8 +102,6 @@ const sessionAuthSlice = createSlice({
         value: {
           id: action.payload.id,
           Name: action.payload.Name,
-          isAdmin: action.payload.isAdmin,
-          isActivate: action.payload.isAdmin,
           access_token: action.payload.access_token,
           refresh_token: action.payload.refresh_token,
         },
@@ -141,6 +113,12 @@ const sessionAuthSlice = createSlice({
 export const { logIn, logOut } = sessionAuthSlice.actions;
 export default sessionAuthSlice.reducer;
 
+
+```
+
+## Interface
+
+```bash
 
 ```
 
@@ -194,14 +172,9 @@ export default function Admin() {
       dispatch(
         logIn({
           id: typeUser.id,
+          Name: typeUser.Name,
           access_token: typeUser.access_token,
-          fullName: typeUser.fullName,
-          isActivate: typeUser.isActivate,
-          isAdmin: typeUser.isAdmin,
-          user: typeUser.user,
-          permissions: typeUser.permissions,
           refresh_token: typeUser.refresh_token,
-          licence: typeUser.licence,
         })
       );
     }
